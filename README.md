@@ -4,6 +4,8 @@ Knick Knack is a macOS desktop application that utilizes Apple's Object Capture 
 the application with 30-200 quality images, the user is provided with an accurate 3D model within minutes. This application was created 
 using SwiftUI, and artwork was created using Procreate.
 
+![queen-gif](ezgif.com-gif-maker.gif)
+
 # Development Environment
 
 * Xcode 12
