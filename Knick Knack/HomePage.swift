@@ -72,12 +72,18 @@ struct HomePage: View {
                 .buttonStyle(BlueButtonStyle())
                 .padding(.top, 30)
                 .padding(.bottom, 60)
+                Image("AR_Bear3")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.leading, -250)
+                    .padding(.trailing, 50)
                 .sheet(isPresented: $showingSheet) {
                     VStack {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                            .frame(width: 625, height: 300, alignment: .center)
-                                            .foregroundColor(Color(red: 0.00, green: 0.34, blue: 0.49))
+                            RoundedRectangle(cornerRadius: 7, style: .continuous)
+                                .frame(width: 625, height: 300, alignment: .center)
+                                .foregroundColor(Color(red: 0.00, green: 0.34, blue: 0.49))
+                                .background(RoundedRectangle(cornerRadius: 8.0).stroke(Color(red: 0.93, green: 0.76, blue: 0.22), lineWidth: 5))
                             Text(messageinfo)
                                 .foregroundColor(Color(red: 0.82, green: 0.78, blue: 0.75))
                                 .font(.title2)
@@ -115,7 +121,8 @@ struct HomePage: View {
                         }
                     }
                     .frame(width: 800, height: 500)
-                    .background(Color(red: 0.13, green: 0.48, blue: 0.63))
+//                    .background(Color(red: 0.13, green: 0.48, blue: 0.63))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.13, green: 0.48, blue: 0.63), Color(red: 0.00, green: 0.34, blue: 0.49)]), startPoint: .leading, endPoint: .trailing))
                 }
                 .sheet(isPresented: $showingSheet3) {
                     Form {
@@ -157,7 +164,8 @@ struct HomePage: View {
                         }
                     }.frame(width: 350, height: 200)
                         .padding()
-                        .background(Color(red: 0.13, green: 0.48, blue: 0.63))
+//                        .background(Color(red: 0.13, green: 0.48, blue: 0.63))
+                        .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.13, green: 0.48, blue: 0.63), Color(red: 0.00, green: 0.34, blue: 0.49)]), startPoint: .leading, endPoint: .trailing))
                     .alert(isPresented: $showingFileAlert) {
                         Alert(title: Text("NOPE!"), message: Text("Dumb file name. Try again."), dismissButton: .default(Text("OK")))
                     }
@@ -176,7 +184,7 @@ struct HomePage: View {
                         }
                     }
                     .environmentObject(progress)
-                    .background(Color(red: 0.00, green: 0.34, blue: 0.49))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.13, green: 0.48, blue: 0.63), Color(red: 0.00, green: 0.34, blue: 0.49)]), startPoint: .leading, endPoint: .trailing))
                 }
             }
             .frame(width: 575)
@@ -184,6 +192,18 @@ struct HomePage: View {
             ZStack {
                 Color(red: 0.13, green: 0.48, blue: 0.63)
                 VStack {
+//                    Spacer()
+//                    Spacer()
+                    Text("Model Files")
+                        .foregroundColor(Color(red: 0.82, green: 0.78, blue: 0.75))
+                        .font(.system(size: 30))
+                        .fontWeight(.bold)
+                        .padding(.top, 20)
+                        .padding(.bottom, 10)
+                    Divider()
+//                        .foregroundColor(Color(red: 0.82, green: 0.78, blue: 0.75))
+                        .frame(width: 200, height: 0.5)
+                        .background(Color(red: 0.82, green: 0.78, blue: 0.75))
                     List(modelFiles, id: \.self) { pop in
                         ZStack {
                             Rectangle()
@@ -194,7 +214,7 @@ struct HomePage: View {
                                 .foregroundColor(Color(red: 0.33, green: 0.31, blue: 0.33))
                         }
                         .onTapGesture {
-                            try! Process.run(URL(fileURLWithPath: "/usr/bin/open"), arguments: ["-a", "Preview", "\(getDocumentsDirectory().appendingPathComponent("\(pop.lastPathComponent)"))"],
+                            try! Process.run(URL(fileURLWithPath: "/usr/bin/open"), arguments: [ "\(getDocumentsDirectory().appendingPathComponent("\(pop.lastPathComponent)"))"],
                             terminationHandler: nil)
                         }
                         .contextMenu {
@@ -208,7 +228,8 @@ struct HomePage: View {
                 }
             }
         }
-        .background(Color(red: 0.00, green: 0.34, blue: 0.49))
+//        .background(Color(red: 0.00, green: 0.34, blue: 0.49))
+        .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.13, green: 0.48, blue: 0.63), Color(red: 0.00, green: 0.34, blue: 0.49)]), startPoint: .leading, endPoint: .trailing))
         .frame(width: 800, height: 500)
         .onAppear(perform: getFiles)
     }

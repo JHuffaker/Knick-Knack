@@ -22,7 +22,7 @@
 		B4043D6027AA389E00CEF039 /* Knick Knack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Knick Knack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4043D6327AA389E00CEF039 /* Knick_KnackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knick_KnackApp.swift; sourceTree = "<group>"; };
 		B4043D6527AA389E00CEF039 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B4043D6727AA389F00CEF039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4043D6727AA389F00CEF039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Knick Knack/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		B4043D6A27AA389F00CEF039 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B4043D6C27AA389F00CEF039 /* Knick_Knack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Knick_Knack.entitlements; sourceTree = "<group>"; };
 		B4043D7527B1F0AE00CEF039 /* terminal_file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = terminal_file.swift; path = ../../../Downloads/CreatingAPhotogrammetryCommandLineApp/HelloPhotogrammetry/terminal_file.swift; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Knick Knack/Knick_Knack.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -331,7 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Knick Knack/Knick_Knack.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
