@@ -214,7 +214,7 @@ struct HomePage: View {
                                 .foregroundColor(Color(red: 0.33, green: 0.31, blue: 0.33))
                         }
                         .onTapGesture {
-                            try! Process.run(URL(fileURLWithPath: "/usr/bin/open"), arguments: [ "\(getDocumentsDirectory().appendingPathComponent("\(pop.lastPathComponent)"))"],
+                            try! Process.run(URL(fileURLWithPath: "/usr/bin/open"), arguments: ["-a", "Preview",  "\(getDocumentsDirectory().appendingPathComponent("\(pop.lastPathComponent)"))"],
                             terminationHandler: nil)
                         }
                         .contextMenu {
