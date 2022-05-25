@@ -12,8 +12,6 @@
 		B4043D6827AA389F00CEF039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4043D6727AA389F00CEF039 /* Assets.xcassets */; };
 		B4043D6B27AA389F00CEF039 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4043D6A27AA389F00CEF039 /* Preview Assets.xcassets */; };
 		B4043D7427B1EF8D00CEF039 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = B4043D7327B1EF8D00CEF039 /* ArgumentParser */; };
-		B4043D7627B1F0AF00CEF039 /* terminal_file.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4043D7527B1F0AE00CEF039 /* terminal_file.swift */; };
-		B4043D7827B1F0E300CEF039 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B4043D7727B1F0E300CEF039 /* LICENSE */; };
 		B4043D7F27BB2DEE00CEF039 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4043D7E27BB2DEE00CEF039 /* HomePage.swift */; };
 		B4043D8327CB48AC00CEF039 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4043D8227CB48AC00CEF039 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
@@ -25,8 +23,6 @@
 		B4043D6727AA389F00CEF039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Knick Knack/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		B4043D6A27AA389F00CEF039 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B4043D6C27AA389F00CEF039 /* Knick_Knack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Knick_Knack.entitlements; sourceTree = "<group>"; };
-		B4043D7527B1F0AE00CEF039 /* terminal_file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = terminal_file.swift; path = ../../../Downloads/CreatingAPhotogrammetryCommandLineApp/HelloPhotogrammetry/terminal_file.swift; sourceTree = "<group>"; };
-		B4043D7727B1F0E300CEF039 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LICENSE; path = ../../Downloads/CreatingAPhotogrammetryCommandLineApp/LICENSE; sourceTree = "<group>"; };
 		B4043D7A27B1F0E600CEF039 /* ACKNOWLEDGEMENTS.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ACKNOWLEDGEMENTS.txt; sourceTree = "<group>"; };
 		B4043D7B27B1F0E600CEF039 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		B4043D7E27BB2DEE00CEF039 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -49,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				B4043D6227AA389E00CEF039 /* Knick Knack */,
-				B4043D7727B1F0E300CEF039 /* LICENSE */,
 				B4043D6127AA389E00CEF039 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,7 +65,6 @@
 				B4043D6527AA389E00CEF039 /* ContentView.swift */,
 				B4043D7E27BB2DEE00CEF039 /* HomePage.swift */,
 				B4043D8227CB48AC00CEF039 /* ProgressBar.swift */,
-				B4043D7527B1F0AE00CEF039 /* terminal_file.swift */,
 				B4043D6727AA389F00CEF039 /* Assets.xcassets */,
 				B4043D6C27AA389F00CEF039 /* Knick_Knack.entitlements */,
 				B4043D6927AA389F00CEF039 /* Preview Content */,
@@ -159,7 +153,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4043D7827B1F0E300CEF039 /* LICENSE in Resources */,
 				B4043D6B27AA389F00CEF039 /* Preview Assets.xcassets in Resources */,
 				B4043D6827AA389F00CEF039 /* Assets.xcassets in Resources */,
 			);
@@ -175,7 +168,6 @@
 				B4043D7F27BB2DEE00CEF039 /* HomePage.swift in Sources */,
 				B4043D6627AA389E00CEF039 /* ContentView.swift in Sources */,
 				B4043D6427AA389E00CEF039 /* Knick_KnackApp.swift in Sources */,
-				B4043D7627B1F0AF00CEF039 /* terminal_file.swift in Sources */,
 				B4043D8327CB48AC00CEF039 /* ProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

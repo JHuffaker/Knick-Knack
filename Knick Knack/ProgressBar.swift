@@ -25,6 +25,7 @@ struct ProgressBar: View {
                 .animation(.linear)
 
             Text(String(format: "%.0f %%", min(self.progress.score, 1.0)*100.0))
+                .foregroundColor(Color(red: 0.82, green: 0.78, blue: 0.75))
                 .font(.largeTitle)
                 .bold()
         }
