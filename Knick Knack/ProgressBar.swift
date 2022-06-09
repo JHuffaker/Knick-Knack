@@ -22,7 +22,8 @@ struct ProgressBar: View {
                 .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Color(red: 0.93, green: 0.76, blue: 0.22))
                 .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear)
+//                .animation(.linear(duration: 1))
+                .animation(.linear, value: self.progress.score)
 
             Text(String(format: "%.0f %%", min(self.progress.score, 1.0)*100.0))
                 .foregroundColor(Color(red: 0.82, green: 0.78, blue: 0.75))

@@ -17,7 +17,7 @@ extension NSTableView {
   }
 }
 
-struct BlueButtonStyle: ButtonStyle {
+struct StartButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .foregroundColor(configuration.isPressed ? Color(red: 0.33, green: 0.31, blue: 0.33, opacity: 0.75) : Color(red: 0.33, green: 0.31, blue: 0.33))
@@ -34,9 +34,9 @@ class GameSettings: ObservableObject {
 struct HomePage: View {
     @Environment(\.openURL) private var openURL
     @State private var toMessage = false
-    @State private var showingSheet = false
-    @State private var showingSheet2 = false
-    @State private var showingSheet3 = false
+    @State private var showingInstructions = false
+    @State private var showingFileDetails = false
+    @State private var showingProgressBar = false
     @State var filename = "Filename"
     @StateObject var progress = GameSettings()
     @State private var modelFiles = [URL]()
@@ -62,14 +62,14 @@ struct HomePage: View {
                     .font(.system(size: 30))
                     .padding(.top, 1)
                 Button(action: {
-                    showingSheet.toggle()
+                    showingInstructions.toggle()
                 }) {
                     Text("Start")
                         .font(.title)
                         .fontWeight(.black)
                         .frame(width: 100, height: 50)
                 }
-                .buttonStyle(BlueButtonStyle())
+                .buttonStyle(StartButtonStyle())
                 .padding(.top, 30)
                 .padding(.bottom, 60)
                 Image("AR_Bear3")
@@ -77,7 +77,7 @@ struct HomePage: View {
                     .scaledToFit()
                     .padding(.leading, -250)
                     .padding(.trailing, 50)
-                .sheet(isPresented: $showingSheet) {
+                .sheet(isPresented: $showingInstructions) {
                     VStack {
                         ZStack {
                             RoundedRectangle(cornerRadius: 7, style: .continuous)
@@ -92,7 +92,7 @@ struct HomePage: View {
                         }
                         HStack {
                             Button(action: {
-                                showingSheet.toggle()
+                                showingInstructions.toggle()
                             }) {
                                 Text("Cancel")
                                     .fontWeight(.black)
@@ -105,7 +105,7 @@ struct HomePage: View {
                                 let panel = NSOpenPanel()
                                 panel.allowsMultipleSelection = true
                                 panel.canChooseDirectories = true
-                                panel.allowedFileTypes = ["png", "jpg", "jpeg", "HEIC", "txt"]
+                                panel.allowedContentTypes = [.png, .image, .jpeg, .heic, .text]
                                 if panel.runModal() == .OK {
                                     self.filename = panel.url?.path ?? "<none>"
                                     promptFileName()
@@ -121,10 +121,9 @@ struct HomePage: View {
                         }
                     }
                     .frame(width: 800, height: 500)
-//                    .background(Color(red: 0.13, green: 0.48, blue: 0.63))
                     .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.13, green: 0.48, blue: 0.63), Color(red: 0.00, green: 0.34, blue: 0.49)]), startPoint: .leading, endPoint: .trailing))
                 }
-                .sheet(isPresented: $showingSheet3) {
+                .sheet(isPresented: $showingFileDetails) {
                     Form {
                         Section {
                             Spacer()
@@ -139,7 +138,7 @@ struct HomePage: View {
                             Spacer()
                             HStack {
                                 Button("Cancel") {
-                                    showingSheet3.toggle()
+                                    showingFileDetails.toggle()
                                 }
                                 .foregroundColor(Color(red: 0.33, green: 0.31, blue: 0.33))
                                 .background(Color(red: 0.93, green: 0.76, blue: 0.22))
@@ -153,7 +152,7 @@ struct HomePage: View {
                                         showingFileAlert.toggle()
                                     }
                                     else {
-                                        didDismiss()
+                                        createModel()
                                     }
                                 }
                                 .foregroundColor(Color(red: 0.33, green: 0.31, blue: 0.33))
@@ -170,7 +169,7 @@ struct HomePage: View {
                         Alert(title: Text("NOPE!"), message: Text("Dumb file name. Try again."), dismissButton: .default(Text("OK")))
                     }
                 }
-                .sheet(isPresented: $showingSheet2, onDismiss: getFiles) {
+                .sheet(isPresented: $showingProgressBar, onDismiss: getFiles) {
                     ZStack {
                         Color.blue
                             .opacity(0.1)
@@ -192,8 +191,6 @@ struct HomePage: View {
             ZStack {
                 Color(red: 0.13, green: 0.48, blue: 0.63)
                 VStack {
-//                    Spacer()
-//                    Spacer()
                     Text("Model Files")
                         .foregroundColor(Color(red: 0.82, green: 0.78, blue: 0.75))
                         .font(.system(size: 30))
@@ -201,7 +198,6 @@ struct HomePage: View {
                         .padding(.top, 20)
                         .padding(.bottom, 10)
                     Divider()
-//                        .foregroundColor(Color(red: 0.82, green: 0.78, blue: 0.75))
                         .frame(width: 200, height: 0.5)
                         .background(Color(red: 0.82, green: 0.78, blue: 0.75))
                     List(modelFiles, id: \.self) { pop in
@@ -228,12 +224,10 @@ struct HomePage: View {
                 }
             }
         }
-//        .background(Color(red: 0.00, green: 0.34, blue: 0.49))
         .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.13, green: 0.48, blue: 0.63), Color(red: 0.00, green: 0.34, blue: 0.49)]), startPoint: .leading, endPoint: .trailing))
         .frame(width: 800, height: 500)
         .onAppear(perform: getFiles)
     }
-    
     
     
     func deleteModel(modelPath: URL) {
@@ -252,8 +246,8 @@ struct HomePage: View {
     }
     
     func promptFileName() {
-        showingSheet.toggle()
-        showingSheet3.toggle()
+        showingInstructions.toggle()
+        showingFileDetails.toggle()
     }
     
     func getFiles() {
@@ -268,9 +262,9 @@ struct HomePage: View {
         }
     }
     
-    func didDismiss() {
-        showingSheet3.toggle()
-        showingSheet2 = true
+    func createModel() {
+        showingFileDetails.toggle()
+        showingProgressBar = true
         let inputFolderURL = URL(fileURLWithPath: self.filename, isDirectory: true)
         
         var config = PhotogrammetrySession.Configuration()
@@ -287,13 +281,13 @@ struct HomePage: View {
         Task {
             for try await output in session.outputs {
                 switch output {
-                case .requestProgress(let request, let fraction):
+                case .requestProgress(_, let fraction):
                     print("Request progress: \(fraction)")
                     progress.score = fraction
-                case .requestComplete(let request, let result):
+                case .requestComplete(_, let result):
                     if case .modelFile(let url) = result {
                         print("Request result output at \(url).")
-                        showingSheet2 = false
+                        showingProgressBar = false
                         let executableURL = URL(fileURLWithPath: "/usr/bin/open")
                         try! Process.run(executableURL, arguments: ["-a", "Preview",  "\(getDocumentsDirectory().appendingPathComponent("\(chosenFileName).usdz"))"],
                         terminationHandler: nil)
@@ -335,6 +329,7 @@ struct HomePage: View {
         }
         
     }
+    
 }
 
 struct HomePage_Previews: PreviewProvider {
