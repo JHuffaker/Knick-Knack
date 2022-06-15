@@ -98,9 +98,10 @@ struct HomePage: View {
                                     .fontWeight(.black)
                                     .frame(width: 100, height: 50)
                             }
-                            .foregroundColor(Color(red: 0.33, green: 0.31, blue: 0.33))
-                            .background(Color(red: 0.93, green: 0.76, blue: 0.22))
-                            .cornerRadius(5)
+//                            .foregroundColor(Color(red: 0.33, green: 0.31, blue: 0.33))
+//                            .background(Color(red: 0.93, green: 0.76, blue: 0.22))
+//                            .cornerRadius(5)
+                            .buttonStyle(StartButtonStyle())
                             Button(action: {
                                 let panel = NSOpenPanel()
                                 panel.allowsMultipleSelection = true
@@ -115,9 +116,10 @@ struct HomePage: View {
                                     .fontWeight(.black)
                                     .frame(width: 100, height: 50)
                             }
-                            .foregroundColor(Color(red: 0.33, green: 0.31, blue: 0.33))
-                            .background(Color(red: 0.93, green: 0.76, blue: 0.22, opacity: 1.0))
-                            .cornerRadius(5)
+//                            .foregroundColor(Color(red: 0.33, green: 0.31, blue: 0.33))
+//                            .background(Color(red: 0.93, green: 0.76, blue: 0.22, opacity: 1.0))
+//                            .cornerRadius(5)
+                            .buttonStyle(StartButtonStyle())
                         }
                     }
                     .frame(width: 800, height: 500)

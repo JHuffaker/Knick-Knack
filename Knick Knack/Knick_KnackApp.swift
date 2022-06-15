@@ -11,7 +11,13 @@ import SwiftUI
 struct Knick_KnackApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+                ContentView()
+                    .fixedSize()
+                    .onReceive(NotificationCenter.default.publisher(for: NSApplication.willUpdateNotification), perform: { _ in
+                        for window in NSApplication.shared.windows {
+                            window.standardWindowButton(.zoomButton)?.isEnabled = false
+                        }
+                    })
+            }
     }
 }
